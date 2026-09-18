@@ -2,7 +2,7 @@
   {
     "title": "40 Winks",
     "author": "Devin Sanders",
-    "genre": "Fantasy",
+    "genres": "Fantasy",
     "blurb": "After rescuing a princess in his sleep, a young man is recruited to find said princess somewhere in Somnus, the world of dreams, and stop her from destroying Earth's delicate balance between sleep and death.",
     "tags": [
       "YA Fantasy",
@@ -35,7 +35,7 @@
   {
     "title": "Admit Nothing: A Grant Hunter Thriller - Book 1",
     "author": "Scott Urbach",
-    "genre": "Thriller & Suspense",
+    "genres": "Thriller & Suspense",
     "blurb": "After a terrorist bomb destroys his family and his career, veteran CIA officer Grant Hunter drifts from one temporary assignment to another. When he is called to the back streets of Bangkok to investigate the death of a fellow officer, he uncovers evidence that a KGB mole has operated for decades within the highest levels of the U.S. government.",
     "tags": [
       "Action & Adventure",
@@ -64,7 +64,7 @@
   {
     "title": "Alley Cat",
     "author": "Scottlyn Rae",
-    "genre": [
+    "genres": [
       "Romantasy",
       "Dark Romance"
     ],
@@ -94,7 +94,7 @@
   {
     "title": "The Ballad of the Curse: The Labyrinth of the Damned Book One",
     "author": "T.A. Crownover",
-    "genre": "Romantasy",
+    "genres": "Romantasy",
     "blurb": "When fae warriors descend on her village, Elera offers the only thing she has left to save her sister: herself. Whisked away to a realm she never knew existed, she becomes a guest of King Haldorin, the fallen God of Death, in a kingdom cursed to vanish for ten years at a time.",
     "tags": [
       "Romantic Fantasy",

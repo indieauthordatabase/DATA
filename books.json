@@ -36,7 +36,7 @@
   {
     "title": "Admit Nothing: A Grant Hunter Thriller - Book 1",
     "author": "Scott Urbach",
-    "genres": "Thriller & Suspense",
+    "genre": "Thriller & Suspense",
     "blurb": "After a terrorist bomb destroys his family and his career, veteran CIA officer Grant Hunter drifts from one temporary assignment to another. When he is called to the back streets of Bangkok to investigate the death of a fellow officer, he uncovers evidence that a KGB mole has operated for decades within the highest levels of the U.S. government.",
     "tags": [
       "Action & Adventure",
@@ -65,7 +65,7 @@
   {
     "title": "Alley Cat",
     "author": "Scottlyn Rae",
-    "genres": [
+    "genre": [
       "Romantasy",
       "Dark Romance"
     ],
@@ -127,7 +127,7 @@
   {
     "title": "The Blood Weave (Mountain Covenant Book 1)",
     "author": "Honey Gouge Casey",
-    "genres": [
+    "genre": [
       "Historical Fiction",
       "Fantasy"
     ],

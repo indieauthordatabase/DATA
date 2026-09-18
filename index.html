@@ -16,8 +16,6 @@
     --berry:#8E2F5B;
     --tint:#F1ECEF;
     --radius:6px;
-    /* Height of the cover image. Change this one number to resize every cover. */
-    --cover-h:300px;
   }
   *{box-sizing:border-box}
   html,body{margin:0;padding:0}
@@ -70,20 +68,14 @@
 
   /* ---------- results ---------- */
   .book{
-    display:grid;grid-template-columns:auto 1fr;gap:22px;
-    padding:32px 0 40px;border-bottom:1px solid var(--line);
+    display:grid;grid-template-columns:64px 1fr;gap:18px;
+    padding:24px 0;border-bottom:1px solid var(--line);
   }
   .cover{
-    display:block;height:var(--cover-h);width:auto;max-width:100%;
-    border-radius:3px;object-fit:contain;object-position:left top;
+    width:200px;aspect-ratio:2/3;border-radius:3px;object-fit:cover;
+    background:var(--tint);display:flex;align-items:center;justify-content:center;
+    font:400 24px/1 Newsreader, Georgia, serif;color:var(--berry);
   }
-  .cover-blank{
-    display:flex;align-items:center;justify-content:center;
-    height:var(--cover-h);aspect-ratio:2/3;max-width:100%;
-    border-radius:3px;background:var(--tint);
-    font:400 96px/1 Newsreader, Georgia, serif;color:var(--berry);
-  }
-  .book > div{min-width:0}
   h2{
     margin:0;font:600 21px/1.25 Newsreader, Georgia, serif;
     letter-spacing:-.005em;
@@ -91,7 +83,7 @@
   h2 a{color:inherit;text-decoration:none}
   h2 a:hover{text-decoration:underline;text-decoration-color:var(--berry);text-underline-offset:3px}
   .byline{margin:3px 0 0;font-size:15px;color:var(--muted)}
-  .blurb{margin:10px 0 0;font-size:15px;color:#4A4550}
+  .blurb{margin:10px 0 0;font-size:15px;color:#4A4550;max-width:62ch}
   .meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;align-items:center}
   .tag{
     border:1px solid var(--line);background:#fff;border-radius:99px;
@@ -121,10 +113,8 @@
   }
   @media (max-width:520px){
     .wrap{padding:16px 16px 48px}
-    .book{grid-template-columns:1fr}
-    :root{--cover-h:auto}
-    .cover{width:100%;height:auto;margin-bottom:16px}
-    .cover-blank{height:auto;width:100%;font-size:64px;margin-bottom:16px}
+    .book{grid-template-columns:48px 1fr;gap:14px}
+    .cover{width:48px;font-size:19px}
     h2{font-size:19px}
     .count{margin-left:0;width:100%}
   }
@@ -141,7 +131,7 @@
              aria-label="Search indie books">
     </div>
     <div class="filters">
-      <select id="f-genre"    aria-label="Filter by genre"><option value="">All genres</option></select>
+      <select id="f-tag"      aria-label="Filter by genre or trope"><option value="">All genres &amp; tropes</option></select>
       <select id="f-audience" aria-label="Filter by audience"><option value="">All audiences</option></select>
       <select id="f-format"   aria-label="Filter by format"><option value="">All formats</option></select>
       <select id="f-spice"    aria-label="Filter by spice level">
@@ -173,13 +163,13 @@
 // from your computer instead of through a web server).
 const FALLBACK = [
   { title:"Sample book", author:"An author", blurb:"books.json didn't load, so this placeholder is showing instead.",
-    genre:"Fantasy", tags:["Fantasy"], audience:"Adult (18+)", spice:null, warnings:"", formats:["E-Book"], cover:"", links:[] }
+    tags:["Fantasy"], audience:"Adult (18+)", spice:null, warnings:"", formats:["E-Book"], cover:"", links:[] }
 ];
 
 let books = [];
 const els = {
   q:        document.getElementById('q'),
-  genre:    document.getElementById('f-genre'),
+  tag:      document.getElementById('f-tag'),
   audience: document.getElementById('f-audience'),
   format:   document.getElementById('f-format'),
   spice:    document.getElementById('f-spice'),
@@ -203,21 +193,19 @@ async function load(){
   }
 
   books.forEach(b => {
-    // "genre" may be a single string or a list — treat both the same way.
-    b._genres = [].concat(b.genre || []).filter(Boolean).map(g => String(g).trim());
     b._sortKey = (b.title || '').replace(/^(the|a|an)\s+/i, '').toLowerCase();
     b._haystack = [
       b.title, b.author, b.blurb, b.audience, b.warnings,
-      b._genres.join(' '), (b.tags || []).join(' '), (b.formats || []).join(' ')
+      (b.tags || []).join(' '), (b.formats || []).join(' ')
     ].join(' ').toLowerCase();
   });
   books.sort((a, b) => a._sortKey.localeCompare(b._sortKey));
 
-  fillOptions(els.genre,    unique(books.flatMap(b => b._genres)));
+  fillOptions(els.tag,      unique(books.flatMap(b => b.tags || [])));
   fillOptions(els.audience, unique(books.map(b => b.audience)));
   fillOptions(els.format,   unique(books.flatMap(b => b.formats || [])));
 
-  [els.q, els.genre, els.audience, els.format, els.spice]
+  [els.q, els.tag, els.audience, els.format, els.spice]
     .forEach(el => el.addEventListener('input', render));
   els.clear.addEventListener('click', reset);
 
@@ -235,18 +223,18 @@ function fillOptions(select, values){
 
 function render(){
   const terms = els.q.value.toLowerCase().split(/\s+/).filter(Boolean);
-  const genre = els.genre.value, audience = els.audience.value;
+  const tag = els.tag.value, audience = els.audience.value;
   const format = els.format.value, spice = els.spice.value;
 
   const matches = books.filter(b =>
     terms.every(t => b._haystack.includes(t)) &&
-    (!genre    || b._genres.includes(genre)) &&
+    (!tag      || (b.tags || []).includes(tag)) &&
     (!audience || b.audience === audience) &&
     (!format   || (b.formats || []).includes(format)) &&
     (!spice    || String(b.spice || 0) === spice)
   );
 
-  const filtering = terms.length || genre || audience || format || spice;
+  const filtering = terms.length || tag || audience || format || spice;
   els.clear.hidden = !filtering;
   els.count.textContent = filtering
     ? `${matches.length} of ${books.length} books`
@@ -271,17 +259,13 @@ function card(b, terms){
 
   const primary = (b.links || [])[0];
   const cover = b.cover
-    ? `<img class="cover" src="${attr(b.cover)}" alt="Cover of ${attr(b.title || '')}" loading="lazy">`
-    : `<div class="cover-blank" aria-hidden="true">${esc((b.title || '?').trim()[0] || '?')}</div>`;
+    ? `<img class="cover" src="${attr(b.cover)}" alt="" loading="lazy">`
+    : `<div class="cover" aria-hidden="true">${esc((b.title || '?').trim()[0] || '?')}</div>`;
 
   const title = highlight(b.title || 'Untitled', terms);
   const heading = primary
     ? `<a href="${attr(primary.url)}" target="_blank" rel="noopener">${title}</a>`
     : title;
-
-  const genres = b._genres
-    .map(g => `<button class="tag" type="button" data-genre="${attr(g)}">${esc(g)}</button>`)
-    .join('');
 
   const tags = (b.tags || [])
     .map(t => `<button class="tag" type="button" data-tag="${attr(t)}">${esc(t)}</button>`)
@@ -310,24 +294,15 @@ function card(b, terms){
       <h2>${heading}</h2>
       <p class="byline">by ${highlight(b.author || 'Unknown', terms)}</p>
       ${b.blurb ? `<p class="blurb">${highlight(b.blurb, terms)}</p>` : ''}
-      <div class="meta">${badges}${genres}${tags}</div>
+      <div class="meta">${badges}${tags}</div>
       ${formats}
       ${warnings}
       ${links ? `<div class="links">${links}</div>` : ''}
     </div>`;
 
-  el.querySelectorAll('[data-genre]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      els.genre.value = btn.dataset.genre;
-      render();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  });
-
-  // Tropes aren't a dropdown, so clicking one searches for it instead.
   el.querySelectorAll('[data-tag]').forEach(btn => {
     btn.addEventListener('click', () => {
-      els.q.value = btn.dataset.tag;
+      els.tag.value = btn.dataset.tag;
       render();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
@@ -355,7 +330,7 @@ function emptyState(query){
 
 function reset(){
   els.q.value = '';
-  [els.genre, els.audience, els.format, els.spice].forEach(s => s.value = '');
+  [els.tag, els.audience, els.format, els.spice].forEach(s => s.value = '');
   render();
   els.q.focus();
 }

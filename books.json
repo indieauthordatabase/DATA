@@ -2,17 +2,15 @@
   {
     "title": "40 Winks",
     "author": "Devin Sanders",
-    "genres":  [
-      "Fantasy",
-      "Comedy",
-      "Adventure"
-    ],
+    "genres": "Fantasy",
     "blurb": "After rescuing a princess in his sleep, a young man is recruited to find said princess somewhere in Somnus, the world of dreams, and stop her from destroying Earth's delicate balance between sleep and death.",
     "tags": [
       "YA Fantasy",
       "Young Adult",
       "Rural Fantasy",
+      "Comedy",
       "Greek Mythology",
+      "Adventure",
       "Family-Friendly"
     ],
     "audience": "YA (12-18)",
@@ -72,7 +70,9 @@
     ],
     "blurb": "Hazel has spent years hiding from the life that made her lethal. Once a government assassin trained to erase magic from the world, she vanished rather than become the kind of monster they demand. When Lux Dravik returns to reclaim his father's criminal empire, he finds a dancer who doesn't move like prey.",
     "tags": [
-      "Mafia Romance"
+      "Romantasy",
+      "Mafia Romance",
+      "Dark Romance"
     ],
     "audience": "Adult (18+)",
     "spice": null,
@@ -104,7 +104,8 @@
       "Found Family",
       "Captor and Captive",
       "Fated Mates",
-      "Forbidden Love"
+      "Forbidden Love",
+      "Romantasy"
     ],
     "audience": "Adult (18+)",
     "spice": null,
@@ -131,6 +132,8 @@
     ],
     "blurb": "In the winter-shadowed ridges of the Appalachian Mountains, as the Civil War tears through even the most remote hollows, an ancient covenant stirs awake. Lena Birchfield has always lived between worlds: healer, midwife, and quiet keeper of the Birchfield women's secret rites.",
     "tags": [
+      "Historical Fiction",
+      "Fantasy",
       "Mythology",
       "Folklore"
     ],
@@ -156,6 +159,7 @@
     "genres": "Science Fiction",
     "blurb": "In the remains of post-World War III Portland, hope is a memory and survival is a wish. Skylar Samuels, known as Angel to the children she protects, has one rule: no adults. At nineteen, she cares for a ragtag family of orphans in the crumbling halls of a once-grand hotel.",
     "tags": [
+      "Science Fiction",
       "Dystopian",
       "Zombies",
       "Post-Apocalyptic",
@@ -180,9 +184,10 @@
   {
     "title": "The Farm",
     "author": "Devin Sanders",
-    "genres": "Children's Book",
+    "genres": "Children's",
     "blurb": "The Farm takes its readers on a journey of animal sounds and sights that might not always match up with each other, all for the sake of completing a good rhyme. Complete with a QR code and music notation, this story can be read or sung.",
     "tags": [
+      "Children's Book",
       "Picture Book",
       "Rhyming",
       "Animals"
@@ -212,6 +217,7 @@
     "genres": "Romance",
     "blurb": "Chase Crawford is the eldest son at the Circle C. When a beautiful woman shows up on his doorstep claiming they had a one night stand and the child she is carrying is his, he has some big decisions to make.",
     "tags": [
+      "Romance",
       "Contemporary",
       "Small Town Romance",
       "Western and Frontier Romance"
@@ -235,8 +241,9 @@
   {
     "title": "For Elise",
     "author": "Odysseus Saint",
-    "genres": "Romance",
-      "Dark Romance"
+    "genres": [
+      "Romance",
+      "Erotica"
     ],
     "blurb": "A dark psychological romance about obsession, control, and the quiet ways harm becomes normalized. When Nick returns home for Christmas break, he steps back into a relationship with his sister Elise that has never been properly examined.",
     "tags": [

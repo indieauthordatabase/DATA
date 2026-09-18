@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Search indie books</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF8F5;
+    --ink:#221F26;
+    --muted:#6B6570;
+    --line:#E5E0DB;
+    --berry:#8E2F5B;
+    --tint:#F1ECEF;
+    --radius:6px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font:400 16px/1.55 Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:860px;margin:0 auto;padding:20px 20px 64px}
+
+  /* ---------- search + filters ---------- */
+  .controls{
+    position:sticky;top:0;z-index:5;
+    background:var(--paper);
+    padding-top:4px;
+    padding-bottom:14px;
+    border-bottom:1px solid var(--line);
+    margin-bottom:6px;
+  }
+  .searchbar{position:relative}
+  .searchbar svg{
+    position:absolute;left:14px;top:50%;transform:translateY(-50%);
+    width:18px;height:18px;stroke:var(--muted);fill:none;stroke-width:2;
+  }
+  #q{
+    width:100%;padding:14px 14px 14px 42px;
+    font:400 17px/1.3 Inter, sans-serif;color:var(--ink);
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  }
+  #q::placeholder{color:#9B949E}
+  #q:focus,select:focus,button:focus-visible,a:focus-visible{
+    outline:2px solid var(--berry);outline-offset:2px;
+  }
+  .filters{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
+  select{
+    appearance:none;
+    padding:8px 30px 8px 11px;
+    font:400 14px/1 Inter, sans-serif;color:var(--ink);
+    background:#fff url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236B6570' stroke-width='1.6' fill='none'/%3E%3C/svg%3E") no-repeat right 11px center;
+    border:1px solid var(--line);border-radius:var(--radius);cursor:pointer;
+  }
+  .count{margin-left:auto;font-size:14px;color:var(--muted)}
+  #clear{
+    border:0;background:none;padding:8px 2px;cursor:pointer;
+    font:500 14px/1 Inter, sans-serif;color:var(--berry);
+    text-decoration:underline;text-underline-offset:3px;
+  }
+  #clear[hidden]{display:none}
+
+  /* ---------- results ---------- */
+  .book{
+    display:grid;grid-template-columns:215px 1fr;gap:18px;
+    padding:24px 0;border-bottom:1px solid var(--line);
+  }
+  .cover{
+    width:200px;aspect-ratio:2/3;border-radius:3px;object-fit:cover;
+    background:var(--tint);display:flex;align-items:center;justify-content:center;
+    font:400 24px/1 Newsreader, Georgia, serif;color:var(--berry);
+  }
+  h2{
+    margin:0;font:600 21px/1.25 Newsreader, Georgia, serif;
+    letter-spacing:-.005em;
+  }
+  h2 a{color:inherit;text-decoration:none}
+  h2 a:hover{text-decoration:underline;text-decoration-color:var(--berry);text-underline-offset:3px}
+  .byline{margin:3px 0 0;font-size:15px;color:var(--muted)}
+  .blurb{margin:10px 0 0;font-size:15px;color:#4A4550;max-width:62ch}
+  .meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;align-items:center}
+  .tag{
+    border:1px solid var(--line);background:#fff;border-radius:99px;
+    padding:4px 11px;font:400 13px/1.3 Inter, sans-serif;color:#514C57;cursor:pointer;
+  }
+  .tag:hover{border-color:var(--berry);color:var(--berry)}
+  .badge{
+    border-radius:99px;padding:4px 11px;font:500 13px/1.3 Inter, sans-serif;
+    background:var(--tint);color:var(--berry);
+  }
+  .links{margin-top:12px;display:flex;flex-wrap:wrap;gap:16px}
+  .links a{font-size:14px;color:var(--berry);text-underline-offset:3px}
+  .warn{margin-top:12px;font-size:14px;color:var(--muted)}
+  .warn button{
+    border:0;background:none;padding:0;cursor:pointer;color:var(--berry);
+    font:500 14px/1 Inter, sans-serif;text-decoration:underline;text-underline-offset:3px;
+  }
+  .warn p{margin:6px 0 0;color:#4A4550}
+  mark{background:#F7E6B0;color:inherit;padding:0 1px;border-radius:2px}
+
+  .empty{padding:56px 0;text-align:center;color:var(--muted)}
+  .empty strong{display:block;margin-bottom:6px;color:var(--ink);font-weight:600}
+  .notice{
+    margin:12px 0 0;padding:10px 12px;border:1px solid var(--line);
+    border-left:3px solid var(--berry);border-radius:var(--radius);
+    font-size:14px;color:#4A4550;background:#fff;
+  }
+  @media (max-width:520px){
+    .wrap{padding:16px 16px 48px}
+    .book{grid-template-columns:48px 1fr;gap:14px}
+    .cover{width:48px;font-size:19px}
+    h2{font-size:19px}
+    .count{margin-left:0;width:100%}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="controls">
+    <div class="searchbar">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg>
+      <input id="q" type="search" autocomplete="off" spellcheck="false"
+             placeholder="Search titles, authors, tropes, keywords…"
+             aria-label="Search indie books">
+    </div>
+    <div class="filters">
+      <select id="f-tag"      aria-label="Filter by genre or trope"><option value="">All genres &amp; tropes</option></select>
+      <select id="f-audience" aria-label="Filter by audience"><option value="">All audiences</option></select>
+      <select id="f-format"   aria-label="Filter by format"><option value="">All formats</option></select>
+      <select id="f-spice"    aria-label="Filter by spice level">
+        <option value="">Any spice level</option>
+        <option value="0">Not listed</option>
+        <option value="1">🌶️ 1</option>
+        <option value="2">🌶️ 2</option>
+        <option value="3">🌶️ 3</option>
+        <option value="4">🌶️ 4</option>
+        <option value="5">🌶️ 5</option>
+      </select>
+      <button id="clear" type="button" hidden>Clear filters</button>
+      <span class="count" id="count" role="status"></span>
+    </div>
+    <p class="notice" id="notice" hidden></p>
+  </div>
+
+  <div id="results"></div>
+</div>
+
+<script>
+/* ------------------------------------------------------------------
+   Indie Author Database — keyword search
+   Data lives in books.json, sitting next to this file.
+   Edit that file to add or change books; nothing here needs touching.
+------------------------------------------------------------------ */
+
+// Shown only if books.json can't be loaded (e.g. opening this file directly
+// from your computer instead of through a web server).
+const FALLBACK = [
+  { title:"Sample book", author:"An author", blurb:"books.json didn't load, so this placeholder is showing instead.",
+    tags:["Fantasy"], audience:"Adult (18+)", spice:null, warnings:"", formats:["E-Book"], cover:"", links:[] }
+];
+
+let books = [];
+const els = {
+  q:        document.getElementById('q'),
+  tag:      document.getElementById('f-tag'),
+  audience: document.getElementById('f-audience'),
+  format:   document.getElementById('f-format'),
+  spice:    document.getElementById('f-spice'),
+  clear:    document.getElementById('clear'),
+  count:    document.getElementById('count'),
+  results:  document.getElementById('results'),
+  notice:   document.getElementById('notice')
+};
+
+load();
+
+async function load(){
+  try {
+    const res = await fetch('books.json', { cache:'no-cache' });
+    if (!res.ok) throw new Error(res.status);
+    books = await res.json();
+  } catch (err) {
+    books = FALLBACK;
+    els.notice.textContent = "Couldn't load books.json, so sample data is showing. If you're previewing this file from your computer, upload it to GitHub Pages instead — browsers block file loading on local pages.";
+    els.notice.hidden = false;
+  }
+
+  books.forEach(b => {
+    b._sortKey = (b.title || '').replace(/^(the|a|an)\s+/i, '').toLowerCase();
+    b._haystack = [
+      b.title, b.author, b.blurb, b.audience, b.warnings,
+      (b.tags || []).join(' '), (b.formats || []).join(' ')
+    ].join(' ').toLowerCase();
+  });
+  books.sort((a, b) => a._sortKey.localeCompare(b._sortKey));
+
+  fillOptions(els.tag,      unique(books.flatMap(b => b.tags || [])));
+  fillOptions(els.audience, unique(books.map(b => b.audience)));
+  fillOptions(els.format,   unique(books.flatMap(b => b.formats || [])));
+
+  [els.q, els.tag, els.audience, els.format, els.spice]
+    .forEach(el => el.addEventListener('input', render));
+  els.clear.addEventListener('click', reset);
+
+  render();
+}
+
+function unique(list){
+  return [...new Set(list.filter(Boolean).map(s => String(s).trim()))]
+    .sort((a, b) => a.localeCompare(b));
+}
+
+function fillOptions(select, values){
+  values.forEach(v => select.append(new Option(v, v)));
+}
+
+function render(){
+  const terms = els.q.value.toLowerCase().split(/\s+/).filter(Boolean);
+  const tag = els.tag.value, audience = els.audience.value;
+  const format = els.format.value, spice = els.spice.value;
+
+  const matches = books.filter(b =>
+    terms.every(t => b._haystack.includes(t)) &&
+    (!tag      || (b.tags || []).includes(tag)) &&
+    (!audience || b.audience === audience) &&
+    (!format   || (b.formats || []).includes(format)) &&
+    (!spice    || String(b.spice || 0) === spice)
+  );
+
+  const filtering = terms.length || tag || audience || format || spice;
+  els.clear.hidden = !filtering;
+  els.count.textContent = filtering
+    ? `${matches.length} of ${books.length} books`
+    : `${books.length} books`;
+
+  els.results.replaceChildren(
+    matches.length
+      ? frag(matches.map(b => card(b, terms)))
+      : emptyState(els.q.value)
+  );
+}
+
+function frag(nodes){
+  const f = document.createDocumentFragment();
+  nodes.forEach(n => f.append(n));
+  return f;
+}
+
+function card(b, terms){
+  const el = document.createElement('article');
+  el.className = 'book';
+
+  const primary = (b.links || [])[0];
+  const cover = b.cover
+    ? `<img class="cover" src="${attr(b.cover)}" alt="" loading="lazy">`
+    : `<div class="cover" aria-hidden="true">${esc((b.title || '?').trim()[0] || '?')}</div>`;
+
+  const title = highlight(b.title || 'Untitled', terms);
+  const heading = primary
+    ? `<a href="${attr(primary.url)}" target="_blank" rel="noopener">${title}</a>`
+    : title;
+
+  const tags = (b.tags || [])
+    .map(t => `<button class="tag" type="button" data-tag="${attr(t)}">${esc(t)}</button>`)
+    .join('');
+
+  const badges = [
+    b.audience ? `<span class="badge">🎯 ${esc(b.audience)}</span>` : '',
+    b.spice    ? `<span class="badge">🌶️ ${esc(b.spice)}/5</span>` : ''
+  ].join('');
+
+  const links = (b.links || [])
+    .map(l => `<a href="${attr(l.url)}" target="_blank" rel="noopener">${esc(l.label || 'Buy')}</a>`)
+    .join('');
+
+  const formats = (b.formats || []).length
+    ? `<p class="byline">${esc(b.formats.join(' · '))}</p>` : '';
+
+  const warnings = b.warnings
+    ? `<div class="warn">⚠️ <button type="button" data-warn>Show content warnings</button>
+         <p hidden>${esc(b.warnings)}</p></div>`
+    : '';
+
+  el.innerHTML = `
+    ${cover}
+    <div>
+      <h2>${heading}</h2>
+      <p class="byline">by ${highlight(b.author || 'Unknown', terms)}</p>
+      ${b.blurb ? `<p class="blurb">${highlight(b.blurb, terms)}</p>` : ''}
+      <div class="meta">${badges}${tags}</div>
+      ${formats}
+      ${warnings}
+      ${links ? `<div class="links">${links}</div>` : ''}
+    </div>`;
+
+  el.querySelectorAll('[data-tag]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      els.tag.value = btn.dataset.tag;
+      render();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  const warnBtn = el.querySelector('[data-warn]');
+  if (warnBtn) {
+    warnBtn.addEventListener('click', () => {
+      const p = warnBtn.parentElement.querySelector('p');
+      p.hidden = !p.hidden;
+      warnBtn.textContent = p.hidden ? 'Show content warnings' : 'Hide content warnings';
+    });
+  }
+  return el;
+}
+
+function emptyState(query){
+  const el = document.createElement('div');
+  el.className = 'empty';
+  el.innerHTML = query
+    ? `<strong>No books match “${esc(query)}”</strong>Try a single word, or a broader trope like “vampires”.`
+    : `<strong>No books match these filters</strong>Clear one and try again.`;
+  return el;
+}
+
+function reset(){
+  els.q.value = '';
+  [els.tag, els.audience, els.format, els.spice].forEach(s => s.value = '');
+  render();
+  els.q.focus();
+}
+
+/* --- small helpers --------------------------------------------- */
+function esc(s){
+  return String(s).replace(/[&<>"']/g, c =>
+    ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
+}
+function attr(s){ return esc(s); }
+
+function highlight(text, terms){
+  let out = esc(text);
+  terms.forEach(t => {
+    const safe = t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    out = out.replace(new RegExp(`(${safe})`, 'gi'), '<mark>$1</mark>');
+  });
+  return out;
+}
+</script>
+</body>
+</html>

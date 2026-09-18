@@ -2,7 +2,7 @@
   {
     "title": "40 Winks",
     "author": "Devin Sanders",
-    "genres": "Fantasy",
+    "genre": "Fantasy",
     "blurb": "After rescuing a princess in his sleep, a young man is recruited to find said princess somewhere in Somnus, the world of dreams, and stop her from destroying Earth's delicate balance between sleep and death.",
     "tags": [
       "YA Fantasy",
@@ -20,7 +20,7 @@
       "Paperback",
       "E-Book"
     ],
-    "cover": "https://m.media-amazon.com/images/I/51WNP9T+yeL._SY466_.jpg",
+    "cover": "",
     "links": [
       {
         "label": "Amazon",
@@ -35,7 +35,7 @@
   {
     "title": "Admit Nothing: A Grant Hunter Thriller - Book 1",
     "author": "Scott Urbach",
-    "genres": "Thriller & Suspense",
+    "genre": "Thriller & Suspense",
     "blurb": "After a terrorist bomb destroys his family and his career, veteran CIA officer Grant Hunter drifts from one temporary assignment to another. When he is called to the back streets of Bangkok to investigate the death of a fellow officer, he uncovers evidence that a KGB mole has operated for decades within the highest levels of the U.S. government.",
     "tags": [
       "Action & Adventure",
@@ -53,7 +53,7 @@
       "E-Book",
       "Kindle Unlimited"
     ],
-    "cover": "https://m.media-amazon.com/images/I/71HfwhQiOmL._SY466_.jpg",
+    "cover": "",
     "links": [
       {
         "label": "Amazon",
@@ -64,12 +64,13 @@
   {
     "title": "Alley Cat",
     "author": "Scottlyn Rae",
-    "genres": [
+    "genre": [
       "Romantasy",
       "Dark Romance"
     ],
     "blurb": "Hazel has spent years hiding from the life that made her lethal. Once a government assassin trained to erase magic from the world, she vanished rather than become the kind of monster they demand. When Lux Dravik returns to reclaim his father's criminal empire, he finds a dancer who doesn't move like prey.",
     "tags": [
+      "Romantasy",
       "Mafia Romance",
       "Dark Romance"
     ],
@@ -82,7 +83,7 @@
       "E-Book",
       "Kindle Unlimited"
     ],
-    "cover": "https://m.media-amazon.com/images/I/41WdX72mxmL._SY445_SX342_FMwebp_.jpg",
+    "cover": "",
     "links": [
       {
         "label": "Amazon",
@@ -93,7 +94,7 @@
   {
     "title": "The Ballad of the Curse: The Labyrinth of the Damned Book One",
     "author": "T.A. Crownover",
-    "genres": "Romantasy",
+    "genre": "Romantasy",
     "blurb": "When fae warriors descend on her village, Elera offers the only thing she has left to save her sister: herself. Whisked away to a realm she never knew existed, she becomes a guest of King Haldorin, the fallen God of Death, in a kingdom cursed to vanish for ten years at a time.",
     "tags": [
       "Romantic Fantasy",
@@ -104,6 +105,7 @@
       "Captor and Captive",
       "Fated Mates",
       "Forbidden Love",
+      "Romantasy"
     ],
     "audience": "Adult (18+)",
     "spice": null,
@@ -113,7 +115,7 @@
       "E-Book",
       "Kindle Unlimited"
     ],
-    "cover": "https://m.media-amazon.com/images/I/71EsPdrvYJL._SL1500_.jpg",
+    "cover": "",
     "links": [
       {
         "label": "Amazon",
@@ -124,12 +126,13 @@
   {
     "title": "The Blood Weave (Mountain Covenant Book 1)",
     "author": "Honey Gouge Casey",
-    "genres": [
+    "genre": [
       "Historical Fiction",
       "Fantasy"
     ],
     "blurb": "In the winter-shadowed ridges of the Appalachian Mountains, as the Civil War tears through even the most remote hollows, an ancient covenant stirs awake. Lena Birchfield has always lived between worlds: healer, midwife, and quiet keeper of the Birchfield women's secret rites.",
     "tags": [
+      "Historical Fiction",
       "Fantasy",
       "Mythology",
       "Folklore"
@@ -142,7 +145,7 @@
       "E-Book",
       "Kindle Unlimited"
     ],
-    "cover": "https://m.media-amazon.com/images/I/716MuWZnbwL._SL1499_.jpg",
+    "cover": "",
     "links": [
       {
         "label": "Amazon",
@@ -153,7 +156,7 @@
   {
     "title": "Dead Girl Walking",
     "author": "Kamira Lennae",
-    "genres": "Science Fiction",
+    "genre": "Science Fiction",
     "blurb": "In the remains of post-World War III Portland, hope is a memory and survival is a wish. Skylar Samuels, known as Angel to the children she protects, has one rule: no adults. At nineteen, she cares for a ragtag family of orphans in the crumbling halls of a once-grand hotel.",
     "tags": [
       "Science Fiction",
@@ -170,7 +173,7 @@
       "E-Book",
       "Audiobook"
     ],
-    "cover": "https://m.media-amazon.com/images/I/61E7K1+WldL._SL1491_.jpg",
+    "cover": "",
     "links": [
       {
         "label": "Amazon",
@@ -181,7 +184,7 @@
   {
     "title": "The Farm",
     "author": "Devin Sanders",
-    "genres": "Children's",
+    "genre": "Children's",
     "blurb": "The Farm takes its readers on a journey of animal sounds and sights that might not always match up with each other, all for the sake of completing a good rhyme. Complete with a QR code and music notation, this story can be read or sung.",
     "tags": [
       "Children's Book",
@@ -211,7 +214,7 @@
   {
     "title": "Forgotten Night: Forgotten Series Book 1",
     "author": "Skye Lynn Bailey",
-    "genres": "Romance",
+    "genre": "Romance",
     "blurb": "Chase Crawford is the eldest son at the Circle C. When a beautiful woman shows up on his doorstep claiming they had a one night stand and the child she is carrying is his, he has some big decisions to make.",
     "tags": [
       "Romance",
@@ -238,7 +241,7 @@
   {
     "title": "For Elise",
     "author": "Odysseus Saint",
-    "genres": [
+    "genre": [
       "Romance",
       "Erotica"
     ],
@@ -267,7 +270,7 @@
   {
     "title": "Galeborn",
     "author": "Dan Filion",
-    "genres": "Fantasy",
+    "genre": "Fantasy",
     "blurb": "Dorothy Gale went home and left something behind. Now her granddaughter Eliza is about to discover that Oz never forgets. This is not the Oz of childhood stories: it is a living land, where forests breathe and choose who walks through them.",
     "tags": [
       "Literature & Fiction",

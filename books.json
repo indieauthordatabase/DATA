@@ -2,7 +2,7 @@
   {
     "title": "40 Winks",
     "author": "Devin Sanders",
-    "genre": "Fantasy",
+    "genres": "Fantasy",
     "blurb": "After rescuing a princess in his sleep, a young man is recruited to find said princess somewhere in Somnus, the world of dreams, and stop her from destroying Earth's delicate balance between sleep and death.",
     "tags": [
       "YA Fantasy",
@@ -35,7 +35,7 @@
   {
     "title": "Admit Nothing: A Grant Hunter Thriller - Book 1",
     "author": "Scott Urbach",
-    "genre": "Thriller & Suspense",
+    "genres": "Thriller & Suspense",
     "blurb": "After a terrorist bomb destroys his family and his career, veteran CIA officer Grant Hunter drifts from one temporary assignment to another. When he is called to the back streets of Bangkok to investigate the death of a fellow officer, he uncovers evidence that a KGB mole has operated for decades within the highest levels of the U.S. government.",
     "tags": [
       "Action & Adventure",

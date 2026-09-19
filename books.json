@@ -296,35 +296,31 @@
       }
     ]
   },
-  {
-    "title": "1113: The Vanquish",
-    "author": "T. I. Queen",
+   {
+    "title": "Galeborn",
+    "author": "Dan Filion",
     "genres": [
-      "Mystery",
-      "Thriller & Suspense"
+      "Fantasy",
+      "Action & Adventure"
     ],
-    "blurb": "Emma Hayes thought her life was a loop of dead ends—until one late-night click led her into the wrong hands. Now she’s bound to a world she never agreed to enter, where contracts bite deeper than blood and escape isn’t part of the terms. What she thought was a match turns into a sentence, one she doesn’t fully understand and one that refuses to let her go. A dark, addictive descent into obsession and control, where desire corrupts, reality fractures, and every choice pulls her further from the life she thought she had.",
+    "blurb": "Dorothy Gale went home and left something behind. Now her granddaughter Eliza is about to discover that Oz never forgets. This is not the Oz of childhood stories: it is a living land, where forests breathe and choose who walks through them.",
     "tags": [
-      "Paranormal",
-      "Vampires"
+      "Literature & Fiction",
+      "Epic Fantasy",
+      "Romantasy"
     ],
     "audience": "Adult (18+)",
     "spice": null,
-    "warnings": "Contains themes of psychological manipulation, captivity, morally gray characters, and intense emotional elements.",
+    "warnings": "",
     "formats": [
       "Paperback",
-      "E-Book",
-      "Kindle Unlimited"
+      "E-Book"
     ],
-    "cover": "https://m.media-amazon.com/images/I/71eHUlev3VL._SL1500_.jpg": 
+    "cover": "https://m.media-amazon.com/images/I/71TmeX3qcGL._SL1360_.jpg",
     "links": [
       {
         "label": "Amazon",
-        "url": "https://www.amazon.com/1113-Vanquish-T-I-Queen/dp/B0G6W79WP4/ref=monarch_sidesheet_title"
-      },
-      {
-        "label": "Goodreads",
-        "url": "https://www.goodreads.com/search?q=1113%3A+The+Vanquish&qid="
+        "url": "https://www.amazon.com/GALEBORN-Gale-Legacy-Dan-Filion/dp/1067558705"
       }
     ]
   }

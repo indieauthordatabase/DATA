@@ -316,7 +316,8 @@
       "E-Book",
       "Kindle Unlimited"
     ],
-    "cover": "https://m.media-amazon.com/images/I/71eHUlev3VL._SL1500_.jpg": [
+    "cover": "https://m.media-amazon.com/images/I/71eHUlev3VL._SL1500_.jpg": 
+    "links": [
       {
         "label": "Amazon",
         "url": "https://www.amazon.com/1113-Vanquish-T-I-Queen/dp/B0G6W79WP4/ref=monarch_sidesheet_title"

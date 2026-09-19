@@ -55,7 +55,8 @@
     "formats": [
       "Paperback",
       "E-Book",
-      "Kindle Unlimited"
+      "Kindle Unlimited",
+      "Audiobook"
     ],
     "cover": "https://m.media-amazon.com/images/I/71jdoW1E9SL._SL1500_.jpg",
     "links": [

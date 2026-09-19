@@ -98,7 +98,10 @@
   {
     "title": "The Ballad of the Curse: The Labyrinth of the Damned Book One",
     "author": "T.A. Crownover",
-    "genres": "Romantasy",
+    "genres": [
+      "Romance",
+      "Fantasy"
+    ],
     "blurb": "When fae warriors descend on her village, Elera offers the only thing she has left to save her sister: herself. Whisked away to a realm she never knew existed, she becomes a guest of King Haldorin, the fallen God of Death, in a kingdom cursed to vanish for ten years at a time.",
     "tags": [
       "Romantic Fantasy",

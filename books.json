@@ -190,10 +190,9 @@
   {
     "title": "The Farm",
     "author": "Devin Sanders",
-    "genres": "Children's",
+    "genres": "Children's Book",
     "blurb": "The Farm takes its readers on a journey of animal sounds and sights that might not always match up with each other, all for the sake of completing a good rhyme. Complete with a QR code and music notation, this story can be read or sung.",
     "tags": [
-      "Children's Book",
       "Picture Book",
       "Rhyming",
       "Animals"
@@ -223,7 +222,6 @@
     "genres": "Romance",
     "blurb": "Chase Crawford is the eldest son at the Circle C. When a beautiful woman shows up on his doorstep claiming they had a one night stand and the child she is carrying is his, he has some big decisions to make.",
     "tags": [
-      "Romance",
       "Contemporary",
       "Small Town Romance",
       "Western and Frontier Romance"
@@ -275,14 +273,15 @@
   {
     "title": "Galeborn",
     "author": "Dan Filion",
-    "genres": "Fantasy",
+    "genres": [
+      "Fantasy",
+      "Action & Adventure"
+    ],
     "blurb": "Dorothy Gale went home and left something behind. Now her granddaughter Eliza is about to discover that Oz never forgets. This is not the Oz of childhood stories: it is a living land, where forests breathe and choose who walks through them.",
     "tags": [
       "Literature & Fiction",
-      "Action & Adventure",
-      "Fantasy",
       "Epic Fantasy",
-      "Romantic Fantasy"
+      "Romantasy"
     ],
     "audience": "Adult (18+)",
     "spice": null,

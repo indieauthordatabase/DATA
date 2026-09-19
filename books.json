@@ -296,6 +296,38 @@
       }
     ]
   },
+    {
+    "title": "Awake: A Musical Fairytale",
+    "author": "Devin Sanders",
+    "genres": [
+      "Fantasy",
+      "Romance"
+    ],
+    "blurb": "In a world full of music, magic, and mermaids, Princess Yorinda couldn’t ever seem to find the one thing everyone else had. True love. Friendzoned, dumped, or rejected by every prince in the land, Awake is a tale of patience, perseverance, and determination. Come along as Yorinda’s story meanders through a slew of other fairy tales, as she searches for what everyone else refers to as a happily ever after. Every chapter is a new fairy tale, full of music and fun. Scan the QR codes for an audio sing-along version.",
+    "tags": [
+      "Fairytale",
+      "Romantic Comedy",
+      "Swords and Sorcery"
+      "Young Adult",
+      "Folk Tales"
+    ],
+    "audience": "YA (13-18)",
+    "spice": null,
+    "warnings": "",
+    "formats": [
+      "Paperback",
+      "Hardback",
+      "E-Book",
+      "Kindle Unlimited"
+    ],
+    "cover": "https://m.media-amazon.com/images/I/61Aty1qu21L._SL1500_.jpg",
+    "links": [
+      {
+        "label": "Amazon",
+        "url": "https://www.amazon.com/Awake-Musical-Fairy-Devin-Sanders/dp/B0HF7QBPBF/ref=monarch_sidesheet_title"
+      }
+    ]
+  },
    {
     "title": "1113: The Vanquish",
     "author": "T. I. Queen",

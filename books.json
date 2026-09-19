@@ -50,7 +50,7 @@
       "Colonial & Revolutionary Periods"
     ],
     "audience": "YA (13-18)",
-    "spice": null,
+    "spice": 0,
     "warnings": "",
     "formats": [
       "Paperback",
@@ -314,7 +314,7 @@
       "Animals"
     ],
     "audience": "Kids (0-8)",
-    "spice": null,
+    "spice": 0,
     "warnings": "",
     "formats": [
       "Paperback",
@@ -431,7 +431,7 @@
       "Folk Tales"
     ],
     "audience": "YA (13-18)",
-    "spice": null,
+    "spice": 0,
     "warnings": "",
     "formats": [
       "Paperback",

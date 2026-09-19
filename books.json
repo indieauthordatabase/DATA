@@ -35,7 +35,34 @@
       }
     ]
   },
-    {
+  {
+    "title": "The Ballad of the Emerald Bard - Opus 01: The Suite of Seduction, Lost Love, and Revenge",
+    "author": "Dan Bonser",
+    "genres": [
+      "Fantasy",
+      "Action & Adventure"
+    ],
+    "blurb": "A bard’s song. A wolf’s howl. A bond forged in love and tested in blood. El’Mindeeya Do’Katal, the Emerald Bard, has sung on battlefields and in royal courts, but her music faces its greatest test when family, prophesy, and divine reckoning take the stage. Across three tales of gods and assassins, poisons and politics, Deeya races to protect the people who define her life. Every choice and every loyalty will be tested as she must fight for the bonds that hold her world together, even as each battle threatens to tear them, and her, apart.",
+    "tags": [
+      "LGBTQ"
+    ],
+    "audience": "Adult (18+)",
+    "spice": null,
+    "warnings": "",
+    "formats": [
+      "Paperback",
+      "E-Book",
+      "Kindle Unlimited"
+    ],
+    "cover": "https://m.media-amazon.com/images/I/81B4wUAhxjL._SL1500_.jpg",
+    "links": [
+      {
+        "label": "Amazon",
+        "url": "https://www.amazon.com/Ballad-Emerald-Bard-Seduction-Revenge-ebook/dp/B01D6D89YQ?ref_=saga_ast_ss_dsk_dp"
+      }
+    ]
+  },
+  {
     "title": "Awaken",
     "author": "T.I. Queen",
     "genres": [

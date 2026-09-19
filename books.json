@@ -12,7 +12,7 @@
       "YA Fantasy",
       "Young Adult",
       "Urban Fantasy",
-      "Greek Mythology"
+      "Greek Mythology",
       "Family-Friendly"
     ],
     "audience": "YA (12-18)",
@@ -69,13 +69,14 @@
     "title": "Alley Cat",
     "author": "Scottlyn Rae",
     "genres": [
-      "Romantasy",
-      "Dark Romance",
-      "Romance"
+      "Romance",
+      "Fantasy"
     ],
     "blurb": "Hazel has spent years hiding from the life that made her lethal. Once a government assassin trained to erase magic from the world, she vanished rather than become the kind of monster they demand. When Lux Dravik returns to reclaim his father's criminal empire, he finds a dancer who doesn't move like prey.",
     "tags": [
-      "Mafia Romance"
+      "Mafia Romance",
+      "Dark Romance",
+      "Romantasy"
     ],
     "audience": "Adult (18+)",
     "spice": null,

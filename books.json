@@ -292,8 +292,8 @@
     "warnings": "",
     "formats": [
       "Paperback",
-      "E-Book",
-      "Audiobook"
+      "Hardcover",
+      "E-Book"
     ],
     "cover": "https://m.media-amazon.com/images/I/61E7K1+WldL._SL1491_.jpg",
     "links": [

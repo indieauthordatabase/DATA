@@ -136,7 +136,8 @@
       <select id="f-format"   aria-label="Filter by format"><option value="">All formats</option></select>
       <select id="f-spice"    aria-label="Filter by spice level">
         <option value="">Any spice level</option>
-        <option value="0">Not listed</option>
+        <option value="none">Not listed</option>
+        <option value="0">🌶️ 0 (Clean)</option>
         <option value="1">🌶️ 1</option>
         <option value="2">🌶️ 2</option>
         <option value="3">🌶️ 3</option>
@@ -233,7 +234,7 @@ function render(){
     (!genre    || b._genres.includes(genre)) &&
     (!audience || b.audience === audience) &&
     (!format   || (b.formats || []).includes(format)) &&
-    (!spice    || String(b.spice || 0) === spice)
+    (!spice    || (spice === 'none' ? b.spice == null : String(b.spice) === spice))
   );
 
   const filtering = terms.length || genre || audience || format || spice;
@@ -279,7 +280,7 @@ function card(b, terms){
 
   const badges = [
     b.audience ? `<span class="badge">🎯 ${esc(b.audience)}</span>` : '',
-    b.spice    ? `<span class="badge">🌶️ ${esc(b.spice)}/5</span>` : ''
+    b.spice != null ? `<span class="badge">🌶️ ${esc(b.spice)}/5</span>` : ''
   ].join('');
 
   const links = (b.links || [])

@@ -415,7 +415,7 @@
       }
     ]
   },
-  {
+    {
     "title": "Galeborn",
     "author": "Dan Filion",
     "genres": [
@@ -440,6 +440,37 @@
       {
         "label": "Amazon",
         "url": "https://www.amazon.com/GALEBORN-Gale-Legacy-Dan-Filion/dp/1067558705"
+      }
+    ]
+  },
+    {
+    "title": "Book Club Smoky Mountain Retreat: Smoky Mountain Retreat",
+    "author": "Elisa Ann Pratt",
+    "genres": [
+      "Adventure",
+      "Comedy"
+    ],
+    "blurb": "Indie author Rose M. Brate is celebrating the release of her newest thriller, and to mark the occasion, she’s invited her closest friends from an online book club to stay at her newly acquired cozy bed-and-breakfast.\nWith the promise of good books, cozy fall sweaters, fireside lattes, and breathtaking views of the Smoky Mountains, Rose’s friends eagerly accept their invitations.Upon arrival, they soon discover there’s far more waiting for them than Rose's carefully planned itinerary. Speculation rises when the tall, handsome stranger who came to their rescue turns out to be far more than just a simple good Samaritan. Things quickly heat up when elements of Rose’s book begin creeping into their reality. As the line between fiction and truth starts to blur, her friends begin to wonder if, perhaps, they are all an interactive part of her storyWithin these pages, you’ll meet fictional characters inspired by real-life indie authors, woven into a tale filled with friendship, adventure, romance, mystery, suspense… and even a touch of magic. More importantly, you’ll discover some of the incredible indie authors I have grown to love on BookTok and the amazing stories that have brought us all together.",
+    "tags": [
+      "Cozy Books",
+      "Mysteries",
+      "Mystery",
+      "Thriller & Suspense",
+      "Cozy"
+    ],
+    "audience": "Adult (18+)",
+    "spice": null,
+    "warnings": "",
+    "formats": [
+      "E-Book",
+      "Paperback",
+      "Kindle Unlimited"
+    ],
+    "cover": "https://m.media-amazon.com/images/I/71aM9FfskOL._SL1500_.jpg",
+    "links": [
+      {
+        "label": "Amazon",
+        "url": "https://www.amazon.com/Blood-Weave-Mountain-Covenant/dp/B0G3NWFKV4/ref=monarch_sidesheet_title"
       }
     ]
   },

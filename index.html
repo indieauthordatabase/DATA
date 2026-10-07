@@ -194,6 +194,16 @@ async function load(){
   }
 
   books.forEach(b => {
+    // Clean up any stray HTML entities in the source data first.
+    ['title', 'author', 'blurb', 'audience', 'warnings'].forEach(k => {
+      if (typeof b[k] === 'string') b[k] = decodeEntities(b[k]);
+    });
+    ['genres', 'tags', 'formats'].forEach(k => {
+      if (Array.isArray(b[k])) b[k] = b[k].map(decodeEntities);
+      else if (typeof b[k] === 'string') b[k] = decodeEntities(b[k]);
+    });
+    (b.links || []).forEach(l => { if (l && typeof l.label === 'string') l.label = decodeEntities(l.label); });
+
     // "genres" may be a single string or a list — treat both the same way.
     b._genres = [].concat(b.genres || []).filter(Boolean).map(g => String(g).trim());
     b._sortKey = (b.title || '').replace(/^(the|a|an)\s+/i, '').toLowerCase();
@@ -357,13 +367,35 @@ function esc(s){
 }
 function attr(s){ return esc(s); }
 
+// If books.json already contains HTML entities (e.g. "&#39;" instead of a
+// plain apostrophe — common when text is copied from a word processor or
+// exported from another system), decode them back to real characters here.
+// Otherwise esc() above would escape the "&" a second time and the entity
+// would show up on the page as literal text instead of a punctuation mark.
+const decoder = document.createElement('textarea');
+function decodeEntities(s){
+  if (s == null) return s;
+  decoder.innerHTML = String(s);
+  return decoder.value;
+}
+
 function highlight(text, terms){
-  let out = esc(text);
-  terms.forEach(t => {
-    const safe = t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    out = out.replace(new RegExp(`(${safe})`, 'gi'), '<mark>$1</mark>');
-  });
-  return out;
+  text = String(text ?? '');
+  if (!terms.length) return esc(text);
+
+  // Match against the RAW text, not the escaped text — escaping first and
+  // then searching could match characters inside an entity like "&#39;"
+  // (e.g. searching "#"), splitting it apart so the browser can no longer
+  // parse it back into a punctuation mark.
+  const pattern = terms
+    .map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+    .join('|');
+  const parts = text.split(new RegExp(`(${pattern})`, 'gi'));
+
+  // split() with a capturing group alternates: part, match, part, match…
+  return parts
+    .map((part, i) => (i % 2 === 1 ? `<mark>${esc(part)}</mark>` : esc(part)))
+    .join('');
 }
 </script>
 </body>

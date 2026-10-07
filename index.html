@@ -83,6 +83,11 @@
   h2 a{color:inherit;text-decoration:none}
   h2 a:hover{text-decoration:underline;text-decoration-color:var(--berry);text-underline-offset:3px}
   .byline{margin:3px 0 0;font-size:15px;color:var(--muted)}
+  .author-link{
+    font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;
+    text-underline-offset:3px;
+  }
+  .author-link:hover{color:var(--berry);text-decoration:underline;text-decoration-color:var(--berry)}
   .blurb{margin:10px 0 0;font-size:15px;color:#4A4550;max-width:62ch}
   .meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;align-items:center}
   .tag{
@@ -309,7 +314,7 @@ function card(b, terms){
     ${cover}
     <div>
       <h2>${heading}</h2>
-      <p class="byline">by ${highlight(b.author || 'Unknown', terms)}</p>
+      <p class="byline">by <button class="author-link" type="button" data-author="${attr(b.author || 'Unknown')}">${highlight(b.author || 'Unknown', terms)}</button></p>
       ${b.blurb ? `<p class="blurb">${highlight(b.blurb, terms)}</p>` : ''}
       <div class="meta">${badges}${genres}${tags}</div>
       ${formats}
@@ -320,6 +325,14 @@ function card(b, terms){
   el.querySelectorAll('[data-genre]').forEach(btn => {
     btn.addEventListener('click', () => {
       els.genre.value = btn.dataset.genre;
+      render();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  el.querySelectorAll('[data-author]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      els.q.value = btn.dataset.author;
       render();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });

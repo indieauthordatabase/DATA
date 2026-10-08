@@ -82,7 +82,8 @@
     "warnings": "",
     "formats": [
       "Paperback",
-      "E-Book"
+      "E-Book",
+      "Hardcover"
     ],
     "cover": "https://assets.lulu.com/cover_thumbs/y/v/yvy8e5y-front-shortedge-384.jpg",
     "links": [
